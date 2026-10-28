@@ -1,0 +1,26 @@
+extends ../../views/main/main.pug
+
+block content
+  .row
+    .col-md-12
+      .d-flex.justify-content-between.align-items-center.mb-4
+        h2 📋 Lista de Reportes Médicos
+        a.btn.btn-primary(href="/vistas/reportes/nuevo") ➕ Agregar Reporte
+
+      table.table.table-striped.table-bordered
+        thead.table-dark
+          tr
+            th Animal
+            th Dueño
+            th Descripción
+            th Fecha
+        tbody
+          each reporte in reportes
+            tr
+              td= reporte.animal ? reporte.animal.nombre : 'Sin animal'
+              td= reporte.dueño ? reporte.dueño.nombre : 'Sin dueño'
+              td= reporte.contenido
+              td= reporte.createdAt ? reporte.createdAt.toLocaleDateString() : ''
+          else
+            tr
+              td.text-center(colspan="4") No hay reportes registrados.

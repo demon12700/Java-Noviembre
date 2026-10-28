@@ -1,0 +1,23 @@
+extends ../../views/main/main.pug
+
+block content
+  .row
+    .col-md-12
+      .d-flex.justify-content-between.align-items-center.mb-4
+        h2 👤 Lista de Dueños
+        a.btn.btn-primary(href="/vistas/duenos/nuevo") ➕ Agregar Dueño
+      table.table.table-striped.table-bordered
+        thead.table-dark
+          tr
+            th Nombre
+            th Teléfono
+            th Correo
+        tbody
+          each dueno in dueños
+            tr
+              td= dueno.nombre
+              td= dueno.telefono
+              td= dueno.correo
+          else
+            tr
+              td.text-center(colspan="3") No hay dueños registrados.

@@ -1,0 +1,28 @@
+extends ../../views/main/main.pug
+
+block content
+  .row.justify-content-center
+    .col-md-6
+      h2.mb-4 🐶 Registrar Nuevo Animal
+      form(action="/vistas/animales", method="POST")
+        .mb-3
+          label.form-label Nombre del Animal
+          input.form-control(type="text", name="nombre", required)
+        .mb-3
+          label.form-label Tipo / Especie
+          input.form-control(type="text", name="tipo", required)
+        .mb-3
+          label.form-label Edad
+          input.form-control(type="number", name="edad")
+        .mb-3
+          label.form-label Dueño
+          .input-group
+            select.form-select(name="dueño", required)
+              option(value="", disabled, selected) Seleccione un dueño...
+              each dueno in dueños
+                option(value=dueno._id)= dueno.nombre
+            //- Botón a la derecha para crear un dueño nuevo al vuelo
+            a.btn.btn-outline-primary(href="/vistas/duenos/nuevo") ➕ Nuevo Dueño
+        
+        button.btn.btn-success(type="submit") Guardar Animal
+        a.btn.btn-secondary.ms-2(href="/vistas/animales") Cancelar

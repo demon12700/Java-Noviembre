@@ -1,0 +1,23 @@
+extends ../../views/main/main.pug
+
+block content
+  .row
+    .col-md-12
+      .d-flex.justify-content-between.align-items-center.mb-4
+        h2 Lista de Animales
+        a.btn.btn-primary(href="/vistas/animales/nuevo") ➕ Agregar Animal
+      table.table.table-striped.table-bordered
+        thead.table-dark
+          tr
+            th Nombre
+            th Tipo / Especie
+            th Dueño
+        tbody
+          each animal in animales
+            tr
+              td= animal.nombre
+              td= animal.tipo
+              td= animal.dueño ? animal.dueño.nombre : 'Sin dueño'
+          else
+            tr
+              td.text-center(colspan="3") No hay animales registrados.
