@@ -1,0 +1,24 @@
+extends ../../views/main/main.pug
+
+block content
+  .row.justify-content-center
+    .col-md-6
+      h2.mb-4 🩺 Registrar Nuevo Especialista
+      form(action="/vistas/especialistas", method="POST")
+        .mb-3
+          label.form-label Nombre
+          input.form-control(type="text", name="nombre", required)
+        .mb-3
+          label.form-label Especialización
+          input.form-control(type="text", name="especializacion", required)
+        .mb-3
+          label.form-label Teléfono
+          input.form-control(type="text", name="telefono", required)
+        .mb-3
+          label.form-label Estado
+          select.form-select(name="estado", required)
+            option(value="ACCESIBLE") ACCESIBLE
+            option(value="INACCESIBLE") INACCESIBLE
+        
+        button.btn.btn-success(type="submit") Guardar Especialista
+        a.btn.btn-secondary.ms-2(href="/vistas/especialistas") Cancelar

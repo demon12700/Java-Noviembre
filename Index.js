@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 3000;
 import dueñoRoutes from "./routes/dueñoRoutes.js";
 import animalRoutes from "./routes/animalRoutes.js";
 import reporteRoutes from "./routes/reporteRoutes.js";
+import especialistaRoutes from "./routes/especialistaRoutes.js";
+import turnoRoutes from "./routes/turnoRoutes.js";
+import reporteSistemaRoutes from "./routes/reporteSistemaRoutes.js";
 import viewRoutes from "./routes/viewRoutes.js";
 
 // Cargar variables de entorno
@@ -26,7 +29,7 @@ conectarDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Configuración de Pug (para cuando implementes las vistas)
+// Configuración de Pug
 app.set("view engine", "pug");
 app.set("views", "./views");
 
@@ -39,6 +42,9 @@ app.get("/", (req, res) => {
 app.use("/dueños", dueñoRoutes);
 app.use("/animales", animalRoutes);
 app.use("/reportes", reporteRoutes);
+app.use("/especialistas", especialistaRoutes);
+app.use("/turnos", turnoRoutes);
+app.use("/reportes-sistema", reporteSistemaRoutes);
 app.use("/vistas", viewRoutes);
 
 // Puerto de escucha

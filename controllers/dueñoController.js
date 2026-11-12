@@ -1,4 +1,4 @@
-import Dueño from "../models/dueño.js";
+import Dueño from "../models/dueno.js";
 
 // Obtener todos
 export const obtenerDueños = async (req, res) => {

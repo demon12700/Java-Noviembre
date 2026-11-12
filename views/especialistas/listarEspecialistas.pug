@@ -1,0 +1,25 @@
+extends ../../views/main/main.pug
+
+block content
+  .row
+    .col-md-12
+      .d-flex.justify-content-between.align-items-center.mb-4
+        h2 🩺 Lista de Especialistas
+        a.btn.btn-primary(href="/vistas/especialistas/nuevo") ➕ Agregar Especialista
+      table.table.table-striped.table-bordered
+        thead.table-dark
+          tr
+            th Nombre
+            th Especialización
+            th Teléfono
+            th Estado
+        tbody
+          each especialista in especialistas
+            tr
+              td= especialista.nombre
+              td= especialista.especializacion
+              td= especialista.telefono
+              td= especialista.estado
+          else
+            tr
+              td.text-center(colspan="4") No hay especialistas registrados.
