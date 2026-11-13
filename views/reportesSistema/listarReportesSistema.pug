@@ -14,6 +14,7 @@ block content
             th Total Dueños
             th Total Reportes
             th Observaciones
+            th.text-center Acciones
         tbody
           each reporte in reportesSistema
             tr
@@ -22,6 +23,9 @@ block content
               td= reporte.totalDuenos
               td= reporte.totalReportes
               td= reporte.observaciones
+              td.text-center
+                form.d-inline(action=`/vistas/reportes-sistema/eliminar/${reporte._id}`, method="POST", onsubmit="return confirm('¿Estás seguro de eliminar este registro?');")
+                  button.btn.btn-danger.btn-sm(type="submit") 🗑️ Eliminar
           else
             tr
               td.text-center(colspan="5") No hay reportes de sistema registrados.

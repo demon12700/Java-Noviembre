@@ -1,0 +1,27 @@
+extends ../../views/main/main.pug
+
+block content
+  .row.justify-content-center
+    .col-md-6
+      h2.mb-4 ✏️ Modificar Turno
+      form(action=`/vistas/turnos/editar/${turno._id}`, method="POST")
+        .mb-3
+          label.form-label Animal
+          select.form-select(name="animal", required)
+            each animal in animales
+              option(value=animal._id, selected=(turno.animal && turno.animal._id.toString() === animal._id.toString()))= animal.nombre
+
+        .mb-3
+          label.form-label Dueño
+          select.form-select(name="dueno", required)
+            each dueno in duenos
+              option(value=dueno._id, selected=(turno.dueno && turno.dueno._id.toString() === dueno._id.toString()))= dueno.nombre
+
+        .mb-3
+          label.form-label Especialista
+          select.form-select(name="especialista", required)
+            each especialista in especialistas
+              option(value=especialista._id, selected=(turno.especialista && turno.especialista._id.toString() === especialista._id.toString()))= `${especialista.nombre} - ${especialista.especializacion}`
+
+        button.btn.btn-success(type="submit") Actualizar Turno
+        a.btn.btn-secondary.ms-2(href="/vistas/turnos") Cancelar

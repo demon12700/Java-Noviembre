@@ -1,22 +1,22 @@
 extends ../../views/main/main.pug
 
 block content
-  .row.justify-content-center
-    .col-md-6
-      h2.mb-4 📊 Generar Reporte de Sistema
-      form(action="/vistas/reportes-sistema", method="POST")
-        .mb-3
-          label.form-label Total de Animales
-          input.form-control(type="number", name="totalAnimales", required)
-        .mb-3
-          label.form-label Total de Dueños
-          input.form-control(type="number", name="totalDuenos", required)
-        .mb-3
-          label.form-label Total de Reportes Médicos
-          input.form-control(type="number", name="totalReportes", required)
-        .mb-3
-          label.form-label Observaciones
-          textarea.form-control(name="observaciones", rows="3", placeholder="Notas del estado general...")
-        
-        button.btn.btn-success(type="submit") Guardar Reporte de Sistema
-        a.btn.btn-secondary.ms-2(href="/vistas/reportes-sistema") Cancelar
+    .row.justify-content-center
+        .col-md-6
+            h2.mb-4 📊 Generar Reporte de Sistema
+            form(action="/vistas/reportes-sistema", method="POST")
+                .mb-3
+                    label.form-label Total de Animales
+                    input.form-control(type="number", name="totalAnimales", value=totalAnimales, readonly, required)
+                .mb-3
+                    label.form-label Total de Dueños
+                    input.form-control(type="number", name="totalDuenos", value=totalDuenos, readonly, required)
+                .mb-3
+                    label.form-label Total de Reportes Médicos
+                    input.form-control(type="number", name="totalReportes", value=totalReportes, readonly, required)
+                .mb-3
+                    label.form-label Observaciones
+                    textarea.form-control(name="observaciones", rows="3", placeholder="Notas del estado general...")
+
+                button.btn.btn-success(type="submit") Guardar Reporte de Sistema
+                a.btn.btn-secondary.ms-2(href="/vistas/reportes-sistema") Cancelar

@@ -1,0 +1,24 @@
+extends ../../views/main/main.pug
+
+block content
+  .row.justify-content-center
+    .col-md-6
+      h2.mb-4 ✏️ Modificar Animal
+      form(action=`/vistas/animales/editar/${animal._id}`, method="POST")
+        .mb-3
+          label.form-label Nombre
+          input.form-control(type="text", name="nombre", value=animal.nombre, required)
+        .mb-3
+          label.form-label Tipo (Ej: Perro, Gato)
+          input.form-control(type="text", name="tipo", value=animal.tipo, required)
+        .mb-3
+          label.form-label Edad
+          input.form-control(type="number", name="edad", value=animal.edad)
+        .mb-3
+          label.form-label Dueño Responsable
+          select.form-select(name="dueño", required)
+            each dueno in dueños
+              option(value=dueno._id, selected=(animal.dueño && animal.dueño._id.toString() === dueno._id.toString()))= dueno.nombre
+
+        button.btn.btn-success(type="submit") Actualizar Animal
+        a.btn.btn-secondary.ms-2(href="/vistas/animales") Cancelar

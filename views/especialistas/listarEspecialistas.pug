@@ -13,6 +13,7 @@ block content
             th Especialización
             th Teléfono
             th Estado
+            th.text-center Acciones
         tbody
           each especialista in especialistas
             tr
@@ -20,6 +21,10 @@ block content
               td= especialista.especializacion
               td= especialista.telefono
               td= especialista.estado
+              td.text-center
+                a.btn.btn-warning.btn-sm.me-2(href=`/vistas/especialistas/editar/${especialista._id}`) ✏️ Editar
+                form.d-inline(action=`/vistas/especialistas/eliminar/${especialista._id}`, method="POST", onsubmit="return confirm('¿Estás seguro de eliminar este registro?');")
+                  button.btn.btn-danger.btn-sm(type="submit") 🗑️ Eliminar
           else
             tr
               td.text-center(colspan="4") No hay especialistas registrados.

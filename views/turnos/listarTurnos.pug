@@ -14,6 +14,7 @@ block content
             th Dueño
             th Especialista
             th Observaciones
+            th.text-center Acciones
         tbody
           each turno in turnos
             tr
@@ -22,6 +23,9 @@ block content
               td= turno.dueno ? turno.dueno.nombre : 'Sin dueño'
               td= turno.especialista ? turno.especialista.nombre : 'Sin especialista'
               td= turno.observaciones
+              td.text-center
+                form.d-inline(action=`/vistas/turnos/eliminar/${turno._id}`, method="POST", onsubmit="return confirm('¿Estás seguro de eliminar este registro?');")
+                  button.btn.btn-danger.btn-sm(type="submit") 🗑️ Eliminar
           else
             tr
               td.text-center(colspan="5") No hay turnos registrados.

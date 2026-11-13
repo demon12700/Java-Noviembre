@@ -49,5 +49,5 @@ app.use("/vistas", viewRoutes);
 
 // Puerto de escucha
 server.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}/vistas/*Datos que quieras ver*`);
 });

@@ -12,12 +12,17 @@ block content
             th Nombre
             th Teléfono
             th Correo
+            th.text-center Acciones
         tbody
           each dueno in dueños
             tr
               td= dueno.nombre
               td= dueno.telefono
               td= dueno.correo
+              td.text-center
+                a.btn.btn-warning.btn-sm.me-2(href=`/vistas/duenos/editar/${dueno._id}`) ✏️ Editar
+                form.d-inline(action=`/vistas/dueno/eliminar/${dueno._id}`, method="POST", onsubmit="return confirm('¿Estás seguro de eliminar este registro?');")
+                  button.btn.btn-danger.btn-sm(type="submit") 🗑️ Eliminar
           else
             tr
               td.text-center(colspan="3") No hay dueños registrados.
