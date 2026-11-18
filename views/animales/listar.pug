@@ -11,6 +11,7 @@ block content
           tr
             th Nombre
             th Tipo / Especie
+            th edad
             th Dueño
             th.text-center Acciones
         tbody
@@ -18,6 +19,7 @@ block content
             tr
               td= animal.nombre
               td= animal.tipo
+              td= animal.edad
               td= animal.dueño ? animal.dueño.nombre : 'Sin dueño'
               td.text-center
                 a.btn.btn-warning.btn-sm.me-2(href=`/vistas/animales/editar/${animal._id}`) ✏️ Editar
