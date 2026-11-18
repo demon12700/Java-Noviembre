@@ -1,7 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import { createServer } from "http";
-import { Server } from "socket.io";
 import { conectarDB } from "./config/db.js";
 const PORT = process.env.PORT || 3000;
 
@@ -17,10 +15,8 @@ import viewRoutes from "./routes/viewRoutes.js";
 // Cargar variables de entorno
 dotenv.config();
 
-// Inicializar Express y Servidor HTTP
+// Inicializar Express
 const app = express();
-const server = createServer(app);
-const io = new Server(server);
 
 // Conectar a la Base de Datos
 conectarDB();
@@ -37,6 +33,9 @@ app.set("views", "./views");
 app.get("/", (req, res) => {
   res.send("Servidor de Veterinaria funcionando correctamente 🐾");
 });
+app.get("/vistas", (req, res) => {
+  res.render("main/main");
+});
 
 // 2. Definir las rutas principales de la API
 app.use("/dueños", dueñoRoutes);
@@ -48,6 +47,6 @@ app.use("/reportes-sistema", reporteSistemaRoutes);
 app.use("/vistas", viewRoutes);
 
 // Puerto de escucha
-server.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}/vistas/*Datos que quieras ver*`);
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}/vistas`);
 });

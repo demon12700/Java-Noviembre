@@ -1,5 +1,6 @@
 import express from "express";
 import { 
+  verMenu,
   verDueños, 
   verAnimales, 
   verReportes, 
@@ -41,6 +42,7 @@ import {
 const router = express.Router();
 
 // --- RUTAS DE LISTADOS ---
+router.get("/vistas", verMenu);
 router.get("/duenos", verDueños);
 router.get("/animales", verAnimales);
 router.get("/reportes", verReportes);

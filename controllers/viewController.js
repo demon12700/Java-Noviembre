@@ -5,6 +5,14 @@ import Especialista from "../models/especialista.js";
 import Turno from "../models/turno.js";
 import ReporteSistema from "../models/reporteSistema.js";
 
+// ==================== MENU PRINCIPAL ====================
+export const verMenu = async (req, res) => {
+  try {
+    res.render("main/main");
+  } catch (error) {
+    res.status(404).send("Error, no se pudo cargar el Menu.")
+  }
+}
 // ==================== LISTADOS ====================
 export const verDueños = async (req, res) => {
   try {
