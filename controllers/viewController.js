@@ -69,7 +69,7 @@ export const verReportesSistema = async (req, res) => {
 };
 
 // ==================== DUEÑOS WEB ====================
-export const renderCrearDueño = (req, res) => res.render("dueños/crear");
+export const renderCrearDueño = (req, res) => res.render("duenos/crear");
 
 export const guardarDueñoWeb = async (req, res) => {
   try {

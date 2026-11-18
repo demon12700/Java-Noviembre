@@ -21,7 +21,7 @@ block content
               td= dueno.correo
               td.text-center
                 a.btn.btn-warning.btn-sm.me-2(href=`/vistas/duenos/editar/${dueno._id}`) ✏️ Editar
-                form.d-inline(action=`/vistas/dueno/eliminar/${dueno._id}`, method="POST", onsubmit="return confirm('¿Estás seguro de eliminar este registro?');")
+                form.d-inline(action=`/vistas/duenos/eliminar/${dueno._id}`, method="POST", onsubmit="return confirm('¿Estás seguro de eliminar este registro?');")
                   button.btn.btn-danger.btn-sm(type="submit") 🗑️ Eliminar
           else
             tr
